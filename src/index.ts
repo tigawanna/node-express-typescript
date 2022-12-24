@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import dotenv from 'dotenv';
+import about from "./routes/about";
 const PORT=4000;    
 
 const startServer=async()=>
@@ -13,7 +14,7 @@ const startServer=async()=>
     app.get('/', (req: Request, res: Response) => {
       res.send('Express + TypeScript Server');
     });
-    
+    app.use("/about",about);
     app.listen(port, () => {
       console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
     });
